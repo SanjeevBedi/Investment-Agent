@@ -1,0 +1,22 @@
+# Investment Platform Vision Input
+
+The platform's future vision is provided through PDF documents stored in the repository root.
+
+## Active Vision Input
+
+- Current starting vision PDF: `investment-vision-v1.pdf`
+- Source file (LaTeX + TikZ): `investment-vision-v1.tex`
+
+## How to Update the Vision
+
+1. Edit `investment-vision-v1.tex` (or add a new `investment-vision-vN.tex` file).
+2. Generate the PDF and keep it in the root folder.
+3. Update this file to mark the currently active vision document.
+
+## Multiple Vision Documents
+
+You can keep multiple versions in the root folder, for example:
+
+- `investment-vision-v1.pdf`
+- `investment-vision-v2.pdf`
+- `investment-vision-long-term.pdf`
