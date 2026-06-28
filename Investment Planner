@@ -67,6 +67,24 @@ Yes. This agent can be built by combining:
 9. **Generate monthly summary** from the daily corpus.
 10. **Add feedback loop** so user adjustments tune future scoring/rating behavior.
 
+## Working implementation in this repository
+
+- Agent script: `investment_agent.py`
+- Prompt file: `investment_agent_prompt.txt`
+- Vision PDF input: `investment-vision-*.pdf` in repository root
+
+Run daily discovery + tracking:
+
+```bash
+python3 investment_agent.py daily
+```
+
+Generate monthly summary from daily summaries:
+
+```bash
+python3 investment_agent.py monthly
+```
+
 ## Operating prompt (reference)
 
 ### SYSTEM ROLE
