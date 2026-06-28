@@ -20,3 +20,101 @@ You can keep multiple versions in the root folder, for example:
 - `investment-vision-v1.pdf`
 - `investment-vision-v2.pdf`
 - `investment-vision-long-term.pdf`
+
+---
+
+# Autonomous research and tracking
+
+## Can this agent be built?
+Yes. This agent can be built by combining:
+- a vision-ingestion pipeline (prompt + attached articles/PDFs),
+- a daily discovery workflow (news/startup/market sources),
+- a scoring and summarization engine,
+- a company tracking datastore,
+- stock trend analytics,
+- monthly rollups from daily summaries.
+
+## What it requires
+
+1. **Inputs**
+   - Core thesis prompt
+   - Supporting vision documents/articles (including versioned PDFs in root)
+   - Daily incoming external data (news/startup/financial updates)
+
+2. **Core system components**
+   - Vision decomposition module (themes, technologies, industries, weak signals)
+   - Relevance scoring module (0-10 and/or 0-1 normalized score)
+   - Entity tracker (companies/articles + history)
+   - Market analysis module (price/volume/trend metrics and rating)
+   - Scheduler (one search per day) + monthly summarizer
+   - JSON output validator for strict schema compliance
+
+3. **Data + storage**
+   - Source connectors (news/startup databases/research feeds/market data)
+   - Persistent storage for entities, daily summaries, and monthly summaries
+   - Versioned ratings that are refined collaboratively with user feedback
+
+## Build steps
+
+1. **Define schemas** for entities, daily reports, monthly reports, and ratings.
+2. **Implement vision decomposition** from prompt + documents into structured tags.
+3. **Build ingestion connectors** for daily external data collection.
+4. **Run candidate extraction** to identify companies/articles/technologies.
+5. **Score alignment** to the vision, with explanation and stage tagging.
+6. **Generate daily summaries** (existing tracked entities + newly discovered entities).
+7. **Add stock analysis** (trend direction, momentum metrics, volatility indicators, rating).
+8. **Store/update entity history** so each day extends the same record.
+9. **Generate monthly summary** from the daily corpus.
+10. **Add feedback loop** so user adjustments tune future scoring/rating behavior.
+
+## Operating prompt (reference)
+
+### SYSTEM ROLE
+You are an expert strategic foresight and venture intelligence analyst.
+
+### GOAL
+Identify and evaluate emerging companies, technologies, and industries that align with a defined long-term vision of the future.
+
+### TASK FLOW
+1. Vision decomposition
+2. Structured representation
+3. Relevance scoring
+4. Insight generation
+5. Strict JSON output
+
+### STRICT JSON (portfolio/discovery view)
+```json
+{
+  "themes": [],
+  "technologies": [],
+  "industries": [],
+  "signals": [],
+  "entities": [
+    {
+      "name": "",
+      "type": "company|article",
+      "alignment_score": 0.0,
+      "trend_direction": "up|down|stable",
+      "rationale": "",
+      "strategic_importance": ""
+    }
+  ]
+}
+```
+
+### STRICT JSON (autonomy-transition lens)
+```json
+{
+  "entity_name": "",
+  "type": "company | article | technology",
+  "alignment_score": 0.0,
+  "evolution_stage": "machine-specific | universal | self-configuring | policy-driven",
+  "industry": "",
+  "technologies": [],
+  "role": "infrastructure | agent layer | orchestration | application",
+  "key_signals": [],
+  "trend_direction": "emerging | growing | mature | declining",
+  "strategic_importance": "",
+  "reasoning": ""
+}
+```
